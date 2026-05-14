@@ -1818,42 +1818,42 @@ const CLOSED = [
 
 const UPCOMING = [
   {id:'u1', short:'Redwood Falls 315 E Bridge St', city:'Redwood Falls', state:'Minnesota',
-   score:68, visits:122, peakDay:'Saturday', peakHour:'5AM',
+   score:68, visits:122, pop:5020, income:61596,
    segs:[{code:"EK03",name:"Outdoor Adventures",cat:"Active",sc:68},
          {code:"EB07",name:"Farm Culture",cat:"Lifestyles",sc:53},
          {code:"EC02",name:"Happily Ever After",cat:"Relationships",sc:39},
          {code:"EC03",name:"Dating Life",cat:"Relationships",sc:38},
          {code:"ED08",name:"Wine Lovers",cat:"Food & Drink",sc:34}]},
   {id:'u2', short:'Huntington 201 S Jefferson St', city:'Huntington', state:'Indiana',
-   score:68, visits:25628, peakDay:'Saturday', peakHour:'6PM',
+   score:68, visits:25628, pop:19584, income:57306,
    segs:[{code:"EB02",name:"Nerd Culture",cat:"Lifestyles",sc:68},
          {code:"EC01",name:"Love & Romance",cat:"Relationships",sc:54},
          {code:"EE06",name:"Live & Local Music",cat:"Entertainment",sc:53},
          {code:"EC07",name:"Girl Squad",cat:"Relationships",sc:53},
          {code:"EJ02",name:"Past Reflections",cat:"Attitudes",sc:50}]},
   {id:'u3', short:'Manitowoc 1022 Washington St', city:'Manitowoc', state:'Wisconsin',
-   score:60, visits:1629, peakDay:'Friday', peakHour:'5PM',
+   score:60, visits:1629, pop:33798, income:63962,
    segs:[{code:"ED09",name:"Hops & Brews",cat:"Food & Drink",sc:60},
          {code:"ED04",name:"Whiskey Business",cat:"Food & Drink",sc:53},
          {code:"EI01",name:"Trend Trackers",cat:"Appearance Oriented",sc:52},
          {code:"EA09",name:"Smoke Culture",cat:"Hobbies & Interests",sc:51},
          {code:"EB02",name:"Nerd Culture",cat:"Lifestyles",sc:51}]},
   {id:'u4', short:'Littleton 10253 W Chatfield Ave', city:'Littleton', state:'Colorado',
-   score:70, visits:89169, peakDay:'Tuesday', peakHour:'9PM',
+   score:70, visits:89169, pop:28491, income:125782,
    segs:[{code:"EK03",name:"Outdoor Adventures",cat:"Active",sc:70},
          {code:"EI04",name:"Fitness Fashion",cat:"Appearance Oriented",sc:63},
          {code:"EK04",name:"Yoga Advocates",cat:"Active",sc:62},
          {code:"EA08",name:"Dog Lovers",cat:"Hobbies & Interests",sc:58},
          {code:"ED09",name:"Hops & Brews",cat:"Food & Drink",sc:53}]},
   {id:'u5', short:'Saco 3 Waterfall Dr', city:'Saco', state:'Maine',
-   score:71, visits:227, peakDay:'Thursday', peakHour:'12PM',
+   score:71, visits:227, pop:12793, income:91817,
    segs:[{code:"EK03",name:"Outdoor Adventures",cat:"Active",sc:71},
          {code:"EK05",name:"Functional Fitness",cat:"Active",sc:67},
          {code:"ED01",name:"Sweet Treats",cat:"Food & Drink",sc:66},
          {code:"EC02",name:"Happily Ever After",cat:"Relationships",sc:62},
          {code:"EA04",name:"Natural Beauty",cat:"Hobbies & Interests",sc:61}]},
   {id:'u6', short:'Salisbury 31942 Summer Dr', city:'Salisbury', state:'Maryland',
-   score:64, visits:1108, peakDay:'Friday', peakHour:'2PM',
+   score:64, visits:1108, pop:19677, income:70825,
    segs:[{code:"EE04",name:"Late-night Leisure",cat:"Entertainment",sc:64},
          {code:"ED06",name:"Ingredient Attentive",cat:"Food & Drink",sc:61},
          {code:"EK01",name:"Organized Sports",cat:"Active",sc:60},
@@ -2322,10 +2322,15 @@ function renderUpcoming() {
             <div style="font-size:18px;font-weight:800;color:${(()=>{const w=s.segs.filter(seg=>WEAK_SEGS.includes(seg.name)).length;return w>0?'#441D1F':'#9E9E9E';})()};">${s.segs.filter(seg=>WEAK_SEGS.includes(seg.name)).length}<span style="font-size:10px;color:var(--tan-dark);">/5</span></div>
           </div>
           <div style="text-align:center;border-left:1px solid var(--border-tan);">
-            <div style="font-size:9px;color:var(--tan-dark);text-transform:uppercase;letter-spacing:0.07em;font-weight:700;">Peak</div>
-            <div style="font-size:12px;font-weight:800;color:var(--brown);">${s.peakDay}</div>
-            <div style="font-size:10px;font-weight:600;color:var(--tan-dark);">${s.peakHour}</div>
+            <div style="font-size:9px;color:var(--tan-dark);text-transform:uppercase;letter-spacing:0.07em;font-weight:700;">Trade area pop.</div>
+            <div style="font-size:15px;font-weight:800;color:var(--brown);">${s.pop.toLocaleString()}</div>
+            <div style="font-size:9px;color:var(--tan-dark);font-weight:600;">10-min drive</div>
           </div>
+        </div>
+
+        <div style="background:var(--surface2);border-radius:7px;padding:7px 10px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="font-size:9px;color:var(--tan-dark);text-transform:uppercase;letter-spacing:0.07em;font-weight:700;">Median household income</div>
+          <div style="font-size:14px;font-weight:800;color:var(--brown);">$${s.income.toLocaleString()}</div>
         </div>
 
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
